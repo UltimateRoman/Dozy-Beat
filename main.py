@@ -10,21 +10,22 @@ bg = PhotoImage(file = "assets/pic1.png")
 bphoto1 = PhotoImage(file = "assets/bgpic1.png")
 bphoto2 = PhotoImage(file = "assets/bgpic2.png")
   
-bimage1 = bphoto1.subsample(3, 3)
-bimage2 = bphoto2.subsample(3, 3)
+bimage1 = bphoto1.subsample(4, 4)
+bimage2 = bphoto2.subsample(4, 3)
 window.title("Welcome to Drowsio app")
 window.resizable(False, False)
 window.geometry('500x500')
 canvas1 = Canvas( window, width = 500, height = 500)  
 canvas1.pack(fill = "both", expand = True)   
-canvas1.create_image( 0, 0, image = bg, anchor = "nw")  
-canvas1.create_text( 200, 250, text = "Welcome")
+canvas1.create_image( 0, 0, image = bg, anchor = "nw")
+Label(window, bg="blue", fg="white", text="Drowsio", font=("roboto", 40)).place(x=140, y=100)
 
 cap = cv2.VideoCapture(0)
 
-def play_music():
+def play_music(img):
+    cv2.putText(img, "Drowsiness detected", (100,100), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,0),2)
     playsound("assets/Untitled.wma")
-
+    
 def main_app():
     t1 = Thread(target=main)
     t1.start()
@@ -51,26 +52,17 @@ def main():
                 eyes = eye_cascade.detectMultiScale(roi_face,1.3,5,minSize=(50,50))
                 if(len(eyes)>=2):
                     if(first_read):
-                        #cv2.putText(img, "press s to begin", (100,100), cv2.FONT_HERSHEY_PLAIN, 3,(0,0,255),2)
                         first_read = False
                         tm = 0
                     else:                    
                         print("..")
-                else:
-                    if(first_read):
-                        cv2.putText(img, "No eyes detected", (100,100), cv2.FONT_HERSHEY_PLAIN, 3,(0,0,255),2)
-                    else:
-                        t2 = time.time()
+                else:                    
+                    if not first_read:
                         tm = tm+1
                         if tm > 300:
-                            print(tm)
-                            t = Thread(target=play_music)
+                            t = Thread(target=play_music, args=(img,))
                             t.start()
                             first_read=True
-                    
-	    
-        else:
-            cv2.putText(img,"No face detected",(100,100),cv2.FONT_HERSHEY_PLAIN, 3, (0,255,0),2)
 
 
         cv2.imshow('img',img)
@@ -85,6 +77,6 @@ def quit_app():
     window.destroy()
 
 
-w1 = Button ( window, text="Start", image=bimage1, command = main_app).place(x=200, y=200)
-w2 = Button ( window, text="Stop", image=bimage2, command = quit_app).place(x=50, y=200)
+w1 = Button ( window, text="Start", image=bimage1, command = main_app).place(x=70, y=260)
+w2 = Button ( window, text="Stop", image=bimage2, command = quit_app).place(x=280, y=260)
 window.mainloop()
