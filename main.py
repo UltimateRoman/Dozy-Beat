@@ -30,7 +30,7 @@ def play_music(img):
     canvas2.pack(fill = "both", expand = True)   
     canvas2.create_image( 0, 0, image = bg2, anchor = "nw")
     cv2.putText(img, "Drowsiness detected", (100,100), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,0),2)
-    playsound("assets/Untitled.wma")
+    playsound("assets/rock.wma")
     windown.destroy()
     
 def main_app():
