@@ -23,8 +23,15 @@ Label(window, bg="blue", fg="white", text="Drowsio", font=("roboto", 40)).place(
 cap = cv2.VideoCapture(0)
 
 def play_music(img):
+    bg2 = PhotoImage(file = "assets/pic2.png")
+    windown = Toplevel(window)
+    windown.geometry('500x500')
+    canvas2 = Canvas( windown, width = 500, height = 500)  
+    canvas2.pack(fill = "both", expand = True)   
+    canvas2.create_image( 0, 0, image = bg2, anchor = "nw")
     cv2.putText(img, "Drowsiness detected", (100,100), cv2.FONT_HERSHEY_PLAIN, 3,(255,0,0),2)
     playsound("assets/Untitled.wma")
+    windown.destroy()
     
 def main_app():
     t1 = Thread(target=main)
@@ -59,7 +66,7 @@ def main():
                 else:                    
                     if not first_read:
                         tm = tm+1
-                        if tm > 300:
+                        if tm > 200:
                             t = Thread(target=play_music, args=(img,))
                             t.start()
                             first_read=True
