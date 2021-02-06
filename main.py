@@ -1,10 +1,6 @@
 from tkinter import *
-<<<<<<< HEAD
 import numpy as np
 import cv2
-=======
-
->>>>>>> 2e0fb4c94df706b5aca17ce092fb9f26b8357482
 from threading import Thread
 import time
 from playsound import playsound
@@ -24,7 +20,6 @@ canvas1.pack(fill = "both", expand = True)
 canvas1.create_image( 0, 0, image = bg, anchor = "nw")  
 canvas1.create_text( 200, 250, text = "Welcome")
 
-<<<<<<< HEAD
 cap = cv2.VideoCapture(0)
 
 def play_music():
@@ -90,8 +85,6 @@ def quit_app():
     window.destroy()
 
 
-=======
->>>>>>> 2e0fb4c94df706b5aca17ce092fb9f26b8357482
 w1 = Button ( window, text="Start", image=bimage1, command = main_app).place(x=200, y=200)
 w2 = Button ( window, text="Stop", image=bimage2, command = quit_app).place(x=50, y=200)
 window.mainloop()
