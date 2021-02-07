@@ -15,8 +15,8 @@ Falling asleep or feeling drowsy during online classes? We've got your back!
    
    -> pip install playsound
    
-3)For running the application
+3) For running the application
 
    -> python main.py
    
-4)Click start and wait for the magic to happen.
+4) Click start and wait for the magic to happen.
