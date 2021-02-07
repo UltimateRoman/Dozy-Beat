@@ -12,13 +12,13 @@ bphoto2 = PhotoImage(file = "assets/bgpic2.png")
   
 bimage1 = bphoto1.subsample(4, 4)
 bimage2 = bphoto2.subsample(4, 3)
-window.title("Welcome to Drowsio app")
+window.title("Welcome to DozyBeat app")
 window.resizable(False, False)
 window.geometry('500x500')
 canvas1 = Canvas( window, width = 500, height = 500)  
 canvas1.pack(fill = "both", expand = True)   
 canvas1.create_image( 0, 0, image = bg, anchor = "nw")
-Label(window, bg="blue", fg="white", text="Drowsio", font=("roboto", 40)).place(x=140, y=100)
+Label(window, bg="blue", fg="white", text="DozyBeat", font=("roboto", 40)).place(x=140, y=100)
 
 cap = cv2.VideoCapture(0)
 
