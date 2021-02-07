@@ -7,16 +7,21 @@ Falling asleep or feeling drowsy during online classes? We've got your back!
 
 1) Clone or download the repo.
 
-2) Open cmd or powershell in the Dozy-Beat folder and type in the following commands:
+```
+$ git clone https://github.com/UltimateRoman/Dozy-Beat
+```
 
-   -> pip install opencv-python
-   
-   -> pip install numpy
-   
-   -> pip install playsound
+2) Open cmd or powershell and use the following commands:
+
+```
+$ cd Dozy-Beat
+$ pip install -r requirements.txt
+```
    
 3) For running the application
 
-   -> python main.py
+```
+$ python main.py
+```
    
 4) Click start and wait for the magic to happen.
