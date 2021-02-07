@@ -3,7 +3,7 @@
 Falling asleep or feeling drowsy during online classes? We've got your back!
 
 
-Steps to run:
+# Steps to run:
 
 1) Clone or download the repo.
 
